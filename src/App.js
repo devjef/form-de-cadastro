@@ -4,14 +4,19 @@ import FormularioCadastro from "./components/FormularioCadastro/FormularioCadast
 import Container from "@material-ui/core/Container"
 
 class App extends Component {
+
   render() {
     return (
       <Container component="article" maxWidth="sm">
         <h1>Formulário de cadastro</h1>
-        <FormularioCadastro />
+        <FormularioCadastro aoEnviar={enviarFormulario} />
       </Container>
     );
   }
+}
+
+function enviarFormulario(dados) {
+  console.log(dados);
 }
 
 export default App;
