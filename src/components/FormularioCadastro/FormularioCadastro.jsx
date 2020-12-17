@@ -1,24 +1,54 @@
-import React from "react";
-import { TextField, Button, Switch, FormControlLabel} from "@material-ui/core";
+import React, { useState } from "react";
+import { TextField, Button, Switch, FormControlLabel } from "@material-ui/core";
 
 function FormularioCadastro() {
+
+  const [nome, setNome] = useState('');
+
+  function handleInputNome(event) {
+    setNome(event.target.value);
+
+    console.log(nome);
+  };
+
   return (
     <form>
-      <TextField variant="outlined" label="nome" id="nome" type="text" fullWidth margin="normal" />
-      <TextField variant="outlined" label="sobrenome" id="sobrenome" type="text" fullWidth margin="normal" />
-      <TextField variant="outlined" label="CPF" id="nome" type="text" fullWidth margin="normal" />
-      
+      <TextField
+        value={nome}
+        onChange={handleInputNome}
+        id="nome"
+        label="Nome"
+        variant="outlined"
+        margin="normal"
+        fullWidth
+      />
+      <TextField
+        id="sobrenome"
+        label="Sobrenome"
+        variant="outlined"
+        margin="normal"
+        fullWidth
+      />
+      <TextField
+        id="CPF"
+        label="CPF"
+        variant="outlined"
+        margin="normal"
+        fullWidth
+      />
 
-      <label>Sobrenome</label>
-      <input type="text" />
-
-      <label>CPF</label>
-      <input type="text" />
-
-      <label>Promoções</label>
-      <input type="checkbox" />
-      <label>Novidades</label>
-      <input type="checkbox" />
+      <FormControlLabel
+        label="Promoções"
+        control={
+          <Switch name="promocoes" defaultChecked={true} color="primary" />
+        }
+      />
+      <FormControlLabel
+        label="Novidades"
+        control={
+          <Switch name="novidades" defaultChecked={true} color="primary" />
+        }
+      />
 
       <Button type="submit" variant="contained" color="primary">
         Cadastrar
