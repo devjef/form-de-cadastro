@@ -6,13 +6,29 @@ function FormularioCadastro() {
   const [nome, setNome] = useState('');
 
   function handleInputNome(event) {
-    setNome(event.target.value);
 
-    console.log(nome);
+    let tmpNome = event.target.value
+    if(tmpNome.length >= 3) {
+      tmpNome = (tmpNome.substr(0,3))
+    }
+    
+    setNome(tmpNome);
+  };
+
+  const [sobrenome, setSobrenome] = useState('');
+
+  function handleInputSobrenome(event) {
+    setSobrenome(event.target.value);
+  };
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    console.log(nome, sobrenome);
+    
   };
 
   return (
-    <form>
+    <form onSubmit={handleFormSubmit}>
       <TextField
         value={nome}
         onChange={handleInputNome}
@@ -23,6 +39,8 @@ function FormularioCadastro() {
         fullWidth
       />
       <TextField
+        value={sobrenome}
+        onChange={handleInputSobrenome}
         id="sobrenome"
         label="Sobrenome"
         variant="outlined"
