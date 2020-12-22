@@ -6,16 +6,24 @@ import { Typography } from '@material-ui/core';
 
 function FormularioCadastro({ aoEnviar, validaCPF }) {
 
-  const [etapaAtual, setEtapaAtual] = useState(3);
+  const [etapaAtual, setEtapaAtual] = useState(0);
+
+  function proximo() {
+    setEtapaAtual(etapaAtual+1)
+  }
+
+  function anterior() {
+    setEtapaAtual(etapaAtual-1)
+  }
 
   function FormularioAtual(etapa) {
     switch (etapa) {
       case 0:
-        return <DadosPessoais aoEnviar={aoEnviar} validaCPF={validaCPF} />
+        return <DadosUsuario aoEnviar={proximo} />
       case 1:
-        return <DadosUsuario />
+        return <DadosPessoais aoEnviar={proximo} validaCPF={validaCPF} />
       case 2:
-        return <DadosEntrega />
+        return <DadosEntrega aoEnviar={aoEnviar} />
       default:
         return <Typography>Erro ao carregar Formulário</Typography>
     }

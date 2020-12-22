@@ -9,12 +9,11 @@ function DadosPessoais({ aoEnviar, validaCPF }) {
   const [promocoes, setPromocoes] = useState(true);
   const [novidades, setNovidades] = useState(true);
   const [erros, setErros] = useState({cpf: {valido: true, texto: ""}});
-  const [btnDisable, setBtnDisable ] = useState(false);
 
   return (
     <form onSubmit={(event) => {
       event.preventDefault();
-      aoEnviar({nome, sobrenome, cpf, promocoes, novidades})
+      aoEnviar();
     }}>
       <TextField
         value={nome}
@@ -24,6 +23,7 @@ function DadosPessoais({ aoEnviar, validaCPF }) {
         variant="outlined"
         margin="normal"
         fullWidth
+        required
       />
       <TextField
         value={sobrenome}
@@ -33,6 +33,7 @@ function DadosPessoais({ aoEnviar, validaCPF }) {
         variant="outlined"
         margin="normal"
         fullWidth
+        required
       />
       <TextField
         value={cpf}
@@ -47,18 +48,19 @@ function DadosPessoais({ aoEnviar, validaCPF }) {
         variant="outlined"
         margin="normal"
         fullWidth
+        required
       />
 
       <FormControlLabel
         label="Promoções"
         control={
-          <Switch name="promocoes" checked={promocoes} onChange={(event) => setPromocoes(event.target.checked)} color="primary" />
+          <Switch name="promocoes" checked={promocoes} onChange={(event) => setPromocoes(event.target.checked)}  color="primary" />
         }
       />
       <FormControlLabel
         label="Novidades"
         control={
-          <Switch name="novidades" checked={novidades} onChange={(event) => setNovidades(event.target.checked)} color="primary" />
+          <Switch name="novidades" checked={novidades} onChange={(event) => setNovidades(event.target.checked)}  color="primary" />
         }
       />
 
