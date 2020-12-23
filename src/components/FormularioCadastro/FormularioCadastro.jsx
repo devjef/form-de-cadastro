@@ -8,6 +8,12 @@ function FormularioCadastro({ aoEnviar, validaCPF }) {
 
   const [etapaAtual, setEtapaAtual] = useState(0);
 
+  const formularios = [
+    <DadosUsuario aoEnviar={proximo} />,
+    <DadosPessoais aoEnviar={proximo} validaCPF={validaCPF} />,
+    <DadosEntrega aoEnviar={aoEnviar} />
+  ]
+
   function proximo() {
     setEtapaAtual(etapaAtual+1)
   }
@@ -16,23 +22,9 @@ function FormularioCadastro({ aoEnviar, validaCPF }) {
     setEtapaAtual(etapaAtual-1)
   }
 
-  function FormularioAtual(etapa) {
-    switch (etapa) {
-      case 0:
-        return <DadosUsuario aoEnviar={proximo} />
-      case 1:
-        return <DadosPessoais aoEnviar={proximo} validaCPF={validaCPF} />
-      case 2:
-        return <DadosEntrega aoEnviar={aoEnviar} />
-      default:
-        return <Typography>Erro ao carregar Formulário</Typography>
-    }
-
-  }
-
   return (
     <>
-      {FormularioAtual(etapaAtual)}
+      {formularios[etapaAtual]}
     </>
   );
 }
