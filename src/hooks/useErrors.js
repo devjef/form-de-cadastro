@@ -9,9 +9,7 @@ function useErrors(validacoes) {
       const novoEstado = {...erros};
       novoEstado[name] = validacoes[name](value);
       setErros(novoEstado);
-  
-      console.log(novoEstado);
-    };
+      };
 
     function possoEnviar() {
         for(let campo in erros) {
