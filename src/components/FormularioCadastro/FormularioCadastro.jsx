@@ -4,7 +4,7 @@ import DadosUsuario from './DadosUsuario';
 import DadosEntrega from './DadosEntrega';
 import { Typography, Stepper, Step, StepLabel } from '@material-ui/core'
 
-function FormularioCadastro({ aoEnviar, validacoes }) {
+function FormularioCadastro({ aoEnviar }) {
 
   const [etapaAtual, setEtapaAtual] = useState(0);
   const [dadosColetados, setDados] = useState({});
@@ -16,10 +16,10 @@ function FormularioCadastro({ aoEnviar, validacoes }) {
   });
 
   const formularios = [
-    <DadosUsuario aoEnviar={coletarDados} validacoes={validacoes} />,
-    <DadosPessoais aoEnviar={coletarDados} validacoes={validacoes} />,
-    <DadosEntrega aoEnviar={coletarDados} validacoes={validacoes} />,
-    <Typography variant="h5">Obrigado pelo cadastro!</Typography>
+    <DadosUsuario aoEnviar={coletarDados} />,
+    <DadosPessoais aoEnviar={coletarDados} anterior={anterior} />,
+    <DadosEntrega aoEnviar={coletarDados} anterior={anterior} />,
+    <Typography variant="h5" align="center">Obrigado pelo cadastro {dadosColetados.nome}!</Typography>
   ];
 
   function coletarDados(dados) {
@@ -30,6 +30,10 @@ function FormularioCadastro({ aoEnviar, validacoes }) {
   function proximo() {
     setEtapaAtual(etapaAtual+1)
   };
+
+  function anterior() {
+    setEtapaAtual(etapaAtual-1);
+  }
 
   return (
     <>

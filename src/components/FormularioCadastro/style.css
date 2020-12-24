@@ -1,0 +1,17 @@
+.button-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+@media only screen and (max-width: 360px) {
+    .button-box {
+        display: block;
+    }
+
+    .button-box button {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}

@@ -3,7 +3,7 @@ import { TextField, Button, Switch, FormControlLabel } from "@material-ui/core";
 import ValidacoesCadastro from './../../context/ValidacoesCadastro';
 import useErrors from '../../hooks/useErrors'
 
-function DadosPessoais({ aoEnviar }) {
+function DadosPessoais({ aoEnviar, anterior }) {
 
   const validacoes = useContext(ValidacoesCadastro);
   const [erros, validaCampos, possoEnviar] = useErrors(validacoes);
@@ -72,10 +72,15 @@ function DadosPessoais({ aoEnviar }) {
           <Switch name="novidades" checked={novidades} onChange={(event) => setNovidades(event.target.checked)}  color="primary" />
         }
       />
+      <div className="button-box">
+      <Button type="button" onClick={anterior} variant="contained" color="default" margin="normal">
+        Anterior
+      </Button>
 
-      <Button type="submit" variant="contained" color="primary">
+      <Button type="submit" variant="contained" color="primary" margin="normal">
         Próximo
       </Button>
+      </div>
     </form>
   );
 }

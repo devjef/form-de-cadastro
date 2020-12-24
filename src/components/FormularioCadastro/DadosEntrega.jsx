@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { TextField, Button } from "@material-ui/core";
+import './style.css'
 
-function DadosEntrega({ aoEnviar }) {
+function DadosEntrega({ aoEnviar, anterior }) {
 
   const [cep, setCEP] = useState("")
   const [endereco, setEndereco] = useState("")
   const [numero, setNumero] = useState("")
   const [estado, setEstado] = useState("")
-  const [cidade, setCidade] = useState("")
+  const [cidade, setCidade] = useState("");
 
   return (
     <form onSubmit={(event) => {
@@ -23,6 +24,7 @@ function DadosEntrega({ aoEnviar }) {
         variant="outlined"
         margin="normal"
         required
+        fullWidth
       />
       <TextField
         value={endereco}
@@ -34,6 +36,7 @@ function DadosEntrega({ aoEnviar }) {
         margin="normal"
         fullWidth
         required
+        fullWidth
       />
       <TextField
         value={numero}
@@ -44,6 +47,7 @@ function DadosEntrega({ aoEnviar }) {
         variant="outlined"
         margin="normal"
         required
+        fullWidth
       />
       <TextField
         value={estado}
@@ -54,6 +58,7 @@ function DadosEntrega({ aoEnviar }) {
         variant="outlined"
         margin="normal"
         required
+        fullWidth
       />
       <TextField
         value={cidade}
@@ -64,10 +69,18 @@ function DadosEntrega({ aoEnviar }) {
         variant="outlined"
         margin="normal"
         required
+        fullWidth
       />
-      <Button type="submit" variant="contained" color="primary" fullWidth>
+      <div className="button-box">
+      <Button type="button" onClick={anterior} variant="contained" color="default" margin="normal">
+        Anterior
+      </Button>
+      <Button type="submit" variant="contained" color="primary" margin="normal">
         Finalizar Cadastro
       </Button>
+      </div>
+       
+     
     </form>
   );
 }
