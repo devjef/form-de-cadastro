@@ -36,7 +36,6 @@ function DadosEntrega({ aoEnviar, anterior }) {
         margin="normal"
         fullWidth
         required
-        fullWidth
       />
       <TextField
         value={numero}
