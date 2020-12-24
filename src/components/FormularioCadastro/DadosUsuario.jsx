@@ -14,6 +14,7 @@ function DadosUsuario({ aoEnviar }) {
       <TextField
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        name="email"
         id="email"
         label="email"
         type="email"
@@ -25,6 +26,7 @@ function DadosUsuario({ aoEnviar }) {
       <TextField
         value={senha}
         onChange={(e) => setSenha(e.target.value)}
+        name="senha"
         id="senha"
         label="senha"
         type="password"
