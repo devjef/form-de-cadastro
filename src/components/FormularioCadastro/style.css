@@ -5,6 +5,13 @@
     margin-top: 1rem;
 }
 
+.btn-right {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-top: 1rem;
+}
+
 @media only screen and (max-width: 360px) {
     .button-box {
         display: block;

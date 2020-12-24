@@ -46,9 +46,12 @@ function DadosUsuario({ aoEnviar }) {
         fullWidth
         required
       />
+      <div className="btn-right">
       <Button type="submit" variant="contained" color="primary">
         Próximo
       </Button>
+      </div>
+      
     </form>
   );
 }
