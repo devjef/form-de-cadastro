@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <Container component="article" maxWidth="sm">
         <h1>Formulário de cadastro</h1>
-        <FormularioCadastro aoEnviar={enviarFormulario} validacoes={{cpf: validaCPF, senha: validaSenha }} />
+        <FormularioCadastro aoEnviar={enviarFormulario} validacoes={{cpf: validaCPF, senha: validaSenha, nome: validaSenha }} />
       </Container>
     );
   }
